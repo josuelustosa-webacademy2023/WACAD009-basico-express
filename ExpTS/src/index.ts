@@ -8,12 +8,18 @@ import dotenv from 'dotenv';
 import logger from './middlewares/logger';
 import loggerUser from './middlewares/loggerUser';
 
+import { engine } from 'express-handlebars';
+
 dotenv.config();
 validateEnv();
 
 const app = express();
 const PORT = process.env.PORT ?? 3333;
 const publicPath = `${process.cwd()}/public`;
+
+app.engine('handlebars', engine());
+app.set('view engine', 'handlebars');
+app.set('views', `${__dirname}/views`)
 
 app.use(router); // Criando as rotas da aplicação
 
