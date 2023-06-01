@@ -41,4 +41,18 @@ router.get('/hb3', (req, res) => {
   });
 });
 
+router.get('/hb4', (req, res) => {
+  const profs = [
+    { nome: 'Tayana Conte', sala: 1234 },
+    { nome: 'Horácio Fernandes', sala: 1235 },
+    { nome: 'Edleno Moura', sala: 1236 },
+    { nome: 'Elaine Harada', sala: 1237 },
+  ];
+
+  res.render('hb4', {
+    profs,
+    layout: false,
+  });
+});
+
 export default router;
