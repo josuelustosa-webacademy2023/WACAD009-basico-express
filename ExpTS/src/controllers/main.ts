@@ -59,4 +59,20 @@ const hb4 = (req: Request, res: Response) => {
   });
 };
 
-export default { welcome, home, staticsFiles, hb1, hb2, hb3, hb4 };
+const hb5 = (req: Request, res: Response) => {
+  const technologies = [
+    { name: 'Express', type: 'Framework', poweredByNodejs: true },
+    { name: 'Laravel', type: 'Framework', poweredByNodejs: false },
+    { name: 'React', type: 'Library', poweredByNodejs: true },
+    { name: 'Handlebars', type: 'Engine View', poweredByNodejs: true },
+    { name: 'Django', type: 'Framework', poweredByNodejs: false },
+    { name: 'Docker', type: 'Virtualization', poweredByNodejs: false },
+    { name: 'Sequelize', type: 'ORM tool', poweredByNodejs: true },
+  ];
+
+  res.render('hb5', {
+    technologies,
+  });
+};
+
+export default { welcome, home, staticsFiles, hb1, hb2, hb3, hb4, hb5 };
