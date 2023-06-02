@@ -22,7 +22,6 @@ const staticsFiles = (req: Request, res: Response) => {
 const hb1 = (req: Request, res: Response) => {
   res.render('hb1', {
     uf: 'Universidade Federal do Amazonas',
-    layout: false,
   });
 };
 
@@ -36,7 +35,6 @@ const hb2 = (req: Request, res: Response) => {
 
   res.render('hb2', {
     profs,
-    layout: false,
   });
 };
 
@@ -45,7 +43,6 @@ const hb3 = (req: Request, res: Response) => {
     nome: 'Express',
     tipo: 'Framework',
     poweredByNode: true,
-    layout: false,
   });
 };
 
@@ -59,7 +56,6 @@ const hb4 = (req: Request, res: Response) => {
 
   res.render('hb4', {
     profs,
-    layout: false,
   });
 };
 

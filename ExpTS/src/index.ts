@@ -21,6 +21,7 @@ app.engine(
   'handlebars',
   engine({
     helpers: require(`${__dirname}/views/helpers/helpers.ts`),
+    layoutsDir: `${__dirname}/views/layout`,
   }),
 );
 
