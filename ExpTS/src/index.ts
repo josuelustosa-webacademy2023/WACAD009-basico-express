@@ -8,12 +8,25 @@ import dotenv from 'dotenv';
 import logger from './middlewares/logger';
 import loggerUser from './middlewares/loggerUser';
 
+import { engine } from 'express-handlebars';
+
 dotenv.config();
 validateEnv();
 
 const app = express();
 const PORT = process.env.PORT ?? 3333;
 const publicPath = `${process.cwd()}/public`;
+
+app.engine(
+  'handlebars',
+  engine({
+    helpers: require(`${__dirname}/views/helpers/helpers.ts`),
+    layoutsDir: `${__dirname}/views/layout`,
+  }),
+);
+
+app.set('view engine', 'handlebars');
+app.set('views', `${__dirname}/views`);
 
 app.use(router); // Criando as rotas da aplicação
 
@@ -28,6 +41,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 // Renderizando arquivos estáticos
 app.use('/css', express.static(`${publicPath}/css`));
 app.use('/js', express.static(`${publicPath}/js`));
+app.use('/assets', express.static(`${publicPath}/assets`));
 
 app.listen(PORT, () => {
   console.log(`App Express iniciada na porta ${PORT}.`);
