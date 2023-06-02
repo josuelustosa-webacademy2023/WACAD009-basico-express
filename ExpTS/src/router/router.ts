@@ -5,7 +5,7 @@ const router = Router();
 
 router.get('/', mainController.home);
 
-router.get('/welcome/:nome', mainController.welcome);
+router.get('/welcome/:nome', mainController.welcome); // http://localhost:3333/welcome/Josué
 
 router.get('/statics-files-page', mainController.staticsFiles);
 

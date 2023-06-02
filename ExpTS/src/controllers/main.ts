@@ -6,7 +6,19 @@ const home = (req: Request, res: Response) => {
   res.send(
     `
         <h1>Bem-vindo :)</h1>
-        <h2>Aplicação Express utilizando TypeScript</h2>    
+        <h2>Aplicação Express utilizando TypeScript</h2>
+        <p>Acesse as páginas da aplicação:</p>
+
+        <ul>
+          <li><a href="/">Início</a></li>
+          <li><a href="/welcome/Josué">Bem-vindo (nome)</a></li>
+          <li><a href="/statics-files-page">Arquivos estáticos</a></li>
+          <li><a href="/hb1">Handlebars #1</a></li>
+          <li><a href="/hb2">Handlebars #2</a></li>
+          <li><a href="/hb3">Handlebars #3</a></li>
+          <li><a href="/hb4">Handlebars #4</a></li>
+          <li><a href="/hb5">Handlebars #5</a></li>
+        </ul>
     `,
   );
 };
@@ -20,7 +32,7 @@ const staticsFiles = (req: Request, res: Response) => {
 };
 
 const hb1 = (req: Request, res: Response) => {
-  res.render('hb1', {
+  res.render('main/hb1', {
     uf: 'Universidade Federal do Amazonas',
   });
 };
@@ -33,13 +45,13 @@ const hb2 = (req: Request, res: Response) => {
     { nome: 'Elaine Harada', sala: 1237 },
   ];
 
-  res.render('hb2', {
+  res.render('main/hb2', {
     profs,
   });
 };
 
 const hb3 = (req: Request, res: Response) => {
-  res.render('hb3', {
+  res.render('main/hb3', {
     nome: 'Express',
     tipo: 'Framework',
     poweredByNode: true,
@@ -54,7 +66,7 @@ const hb4 = (req: Request, res: Response) => {
     { nome: 'Elaine Harada', sala: 1237 },
   ];
 
-  res.render('hb4', {
+  res.render('main/hb4', {
     profs,
   });
 };
@@ -70,7 +82,7 @@ const hb5 = (req: Request, res: Response) => {
     { name: 'Sequelize', type: 'ORM Tool', poweredByNodejs: true },
   ];
 
-  res.render('hb5', {
+  res.render('main/hb5', {
     technologies,
   });
 };
