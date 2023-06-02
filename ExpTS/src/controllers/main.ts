@@ -67,7 +67,7 @@ const hb5 = (req: Request, res: Response) => {
     { name: 'Handlebars', type: 'Engine View', poweredByNodejs: true },
     { name: 'Django', type: 'Framework', poweredByNodejs: false },
     { name: 'Docker', type: 'Virtualization', poweredByNodejs: false },
-    { name: 'Sequelize', type: 'ORM tool', poweredByNodejs: true },
+    { name: 'Sequelize', type: 'ORM Tool', poweredByNodejs: true },
   ];
 
   res.render('hb5', {

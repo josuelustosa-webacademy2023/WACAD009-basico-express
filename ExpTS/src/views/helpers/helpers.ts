@@ -6,8 +6,9 @@ export function listaProfs(profs: Prof[]) {
 }
 
 export function listaTecnologies(tecs: PoweredByNodejs[]) {
-  const listaTec = tecs.map((t) => `<li>${t.name}-${t.type}</li>`);
-  console.log(listaTec)
+  const listaTec = tecs.map((t) => {
+    if (t.poweredByNodejs) return `<li>${t.name} - ${t.type}</li>`;
+  });
 
   return `<ul>${listaTec.join('')}</ul>`;
 }
