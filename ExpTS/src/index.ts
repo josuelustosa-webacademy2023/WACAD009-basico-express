@@ -41,6 +41,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 // Renderizando arquivos estáticos
 app.use('/css', express.static(`${publicPath}/css`));
 app.use('/js', express.static(`${publicPath}/js`));
+app.use('/assets', express.static(`${publicPath}/assets`));
 
 app.listen(PORT, () => {
   console.log(`App Express iniciada na porta ${PORT}.`);

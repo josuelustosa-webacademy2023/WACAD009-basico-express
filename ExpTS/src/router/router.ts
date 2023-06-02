@@ -9,6 +9,8 @@ router.get('/welcome/:nome', mainController.welcome); // http://localhost:3333/w
 
 router.get('/statics-files-page', mainController.staticsFiles);
 
+router.get('/lorem-ipsum-generator', mainController.loremIpsumGenerator);
+
 router.get('/hb1', mainController.hb1);
 
 router.get('/hb2', mainController.hb2);

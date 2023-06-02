@@ -13,6 +13,7 @@ const home = (req: Request, res: Response) => {
           <li><a href="/">Início</a></li>
           <li><a href="/welcome/Josué">Bem-vindo (nome)</a></li>
           <li><a href="/statics-files-page">Arquivos estáticos</a></li>
+          <li><a href="/lorem-ipsum-generator">Gerador de Lorem Ipsum</a></li>
           <li><a href="/hb1">Handlebars #1</a></li>
           <li><a href="/hb2">Handlebars #2</a></li>
           <li><a href="/hb3">Handlebars #3</a></li>
@@ -29,6 +30,10 @@ const welcome = (req: Request, res: Response) => {
 
 const staticsFiles = (req: Request, res: Response) => {
   res.sendFile(`${publicPath}/html/index.html`);
+};
+
+const loremIpsumGenerator = (req: Request, res: Response) => {
+  res.sendFile(`${publicPath}/html/lorem-ipsum.html`);
 };
 
 const hb1 = (req: Request, res: Response) => {
@@ -87,4 +92,14 @@ const hb5 = (req: Request, res: Response) => {
   });
 };
 
-export default { welcome, home, staticsFiles, hb1, hb2, hb3, hb4, hb5 };
+export default {
+  welcome,
+  home,
+  staticsFiles,
+  loremIpsumGenerator,
+  hb1,
+  hb2,
+  hb3,
+  hb4,
+  hb5,
+};
