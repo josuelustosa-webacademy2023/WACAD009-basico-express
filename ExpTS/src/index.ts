@@ -47,7 +47,7 @@ app.use(
     src: `${publicPath}/scss`,
     dest: `${publicPath}/css`,
     outputStyle: 'compressed',
-    prefix: '/css'
+    prefix: '/css',
   }),
 );
 
@@ -55,6 +55,12 @@ app.use(
 app.use('/css', express.static(`${publicPath}/css`));
 app.use('/js', express.static(`${publicPath}/js`));
 app.use('/images', express.static(`${publicPath}/images`));
+app.use(
+  '/webfonts',
+  express.static(
+    `${__dirname}/../node_modules/@fortawesome/fontawesome-free/webfonts`,
+  ),
+);
 
 app.listen(PORT, () => {
   console.log(`App Express iniciada na porta ${PORT}.`);
