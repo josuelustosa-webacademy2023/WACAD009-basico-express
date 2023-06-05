@@ -10,12 +10,15 @@ import loggerUser from './middlewares/loggerUser';
 
 import { engine } from 'express-handlebars';
 
+import sass from 'node-sass-middleware';
+
 dotenv.config();
 validateEnv();
 
 const app = express();
 const PORT = process.env.PORT ?? 3333;
-const publicPath = `${process.cwd()}/public`;
+
+const publicPath = `${process.cwd()}/public`; // caminho da pasta de arquivos estáticos
 
 app.engine(
   'handlebars',
@@ -37,6 +40,16 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   console.log('Hello World!');
   next();
 });
+
+// Utilizando sass
+app.use(
+  sass({
+    src: `${publicPath}/scss`,
+    dest: `${publicPath}/css`,
+    outputStyle: 'compressed',
+    prefix: '/css'
+  }),
+);
 
 // Renderizando arquivos estáticos
 app.use('/css', express.static(`${publicPath}/css`));
