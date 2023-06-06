@@ -3,7 +3,8 @@ import mainController from '../controllers/main';
 
 const router = Router();
 
-router.get('/', mainController.home);
+//router.get('/', mainController.home);
+router.get('/', mainController.homePage);
 
 router.get('/welcome/:nome', mainController.welcome); // http://localhost:3333/welcome/Josué
 

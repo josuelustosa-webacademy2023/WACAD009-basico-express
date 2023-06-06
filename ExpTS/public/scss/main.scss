@@ -1,0 +1,15 @@
+// arquivos SCSS utilizados
+@import './style.scss';
+@import './variables.scss';
+
+// importando arquivo principal do Font Awesome
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
+
+// importando os ícones em forma de Solid e Brands
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss';
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/brands.scss';
+
+// importando bootstrap
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import './bootswatch.scss'; // tema bootstrap (bootswatch)
+@import './custom.scss';

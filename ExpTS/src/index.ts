@@ -10,12 +10,15 @@ import loggerUser from './middlewares/loggerUser';
 
 import { engine } from 'express-handlebars';
 
+import sass from 'node-sass-middleware';
+
 dotenv.config();
 validateEnv();
 
 const app = express();
 const PORT = process.env.PORT ?? 3333;
-const publicPath = `${process.cwd()}/public`;
+
+const publicPath = `${process.cwd()}/public`; // caminho da pasta de arquivos estáticos
 
 app.engine(
   'handlebars',
@@ -38,10 +41,29 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   next();
 });
 
+// Utilizando sass
+app.use(
+  sass({
+    src: `${publicPath}/scss`,
+    dest: `${publicPath}/css`,
+    outputStyle: 'compressed',
+    prefix: '/css',
+  }),
+);
+
 // Renderizando arquivos estáticos
 app.use('/css', express.static(`${publicPath}/css`));
-app.use('/js', express.static(`${publicPath}/js`));
-app.use('/assets', express.static(`${publicPath}/assets`));
+app.use('/js', express.static(`${publicPath}/js`), [
+  express.static(`${publicPath}/js`),
+  express.static(`${__dirname}/../node_modules/bootstrap/dist/js`),
+]);
+app.use('/images', express.static(`${publicPath}/images`));
+app.use(
+  '/webfonts',
+  express.static(
+    `${__dirname}/../node_modules/@fortawesome/fontawesome-free/webfonts`,
+  ),
+);
 
 app.listen(PORT, () => {
   console.log(`App Express iniciada na porta ${PORT}.`);
