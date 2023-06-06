@@ -1,8 +1,12 @@
+// arquivos SCSS utilizados
 @import './style.scss';
 
-// importing core styling file
+// importando arquivo principal do Font Awesome 
 @import '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss';
 
-// our project needs Solid + Brands
+// importando os ícones em forma de Solid e Brands
 @import '../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss';
 @import '../../node_modules/@fortawesome/fontawesome-free/scss/brands.scss';
+
+// importando bootstrap
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';

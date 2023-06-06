@@ -53,7 +53,10 @@ app.use(
 
 // Renderizando arquivos estáticos
 app.use('/css', express.static(`${publicPath}/css`));
-app.use('/js', express.static(`${publicPath}/js`));
+app.use('/js', express.static(`${publicPath}/js`), [
+  express.static(`${publicPath}/js`),
+  express.static(`${__dirname}/../node_modules/bootstrap/dist/js`),
+]);
 app.use('/images', express.static(`${publicPath}/images`));
 app.use(
   '/webfonts',
