@@ -2,28 +2,6 @@ import { Request, Response } from 'express-serve-static-core';
 
 const publicPath = `${process.cwd()}/public`;
 
-const home = (req: Request, res: Response) => {
-  res.send(
-    `
-        <h1>Bem-vindo :)</h1>
-        <h2>Aplicação Express utilizando TypeScript</h2>
-        <p>Acesse as páginas da aplicação:</p>
-
-        <ul>
-          <li><a href="/">Início</a></li>
-          <li><a href="/welcome/Josué">Bem-vindo (nome)</a></li>
-          <li><a href="/statics-files-page">Arquivos estáticos</a></li>
-          <li><a href="/lorem-ipsum-generator">Gerador de Lorem Ipsum</a></li>
-          <li><a href="/hb1">Handlebars #1</a></li>
-          <li><a href="/hb2">Handlebars #2</a></li>
-          <li><a href="/hb3">Handlebars #3</a></li>
-          <li><a href="/hb4">Handlebars #4</a></li>
-          <li><a href="/hb5">Handlebars #5</a></li>
-        </ul>
-    `,
-  );
-};
-
 const welcome = (req: Request, res: Response) => {
   res.send(req.params.nome);
 };
@@ -34,6 +12,24 @@ const staticsFiles = (req: Request, res: Response) => {
 
 const loremIpsumGenerator = (req: Request, res: Response) => {
   res.sendFile(`${publicPath}/html/lorem-ipsum.html`);
+};
+
+const homePage = (req: Request, res: Response) => {
+  const pagesLinks = [
+    // { name: 'Início', path: '/' },
+    { name: 'Hb #1', path: '/hb1' },
+    { name: 'Hb #2', path: '/hb2' },
+    { name: 'Hb #3', path: '/hb3' },
+    { name: 'Hb #4', path: '/hb4' },
+    { name: 'Hb #5', path: '/hb5' },
+    { name: 'Rota com Nome', path: '/welcome/Josué' },
+    { name: 'Arquivos Estáticos', path: '/statics-files-page' },
+    { name: 'Gerador de Lorem Ipsum', path: '/lorem-ipsum-generator' },
+  ];
+
+  res.render('main/home', {
+    pagesLinks,
+  });
 };
 
 const hb1 = (req: Request, res: Response) => {
@@ -94,7 +90,7 @@ const hb5 = (req: Request, res: Response) => {
 
 export default {
   welcome,
-  home,
+  homePage,
   staticsFiles,
   loremIpsumGenerator,
   hb1,

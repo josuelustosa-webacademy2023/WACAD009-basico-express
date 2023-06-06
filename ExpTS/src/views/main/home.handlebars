@@ -1,0 +1,10 @@
+<h1>Bem-vindo(a)!</h1>
+<h2>Aplicação Express utilizando TypeScript.</h2>
+<p>Acesse as páginas da aplicação:</p>
+<ul>
+  {{#each pagesLinks}}
+    <li>
+      <a href='{{path}}'>{{name}}</a>
+    </li>
+  {{/each}}
+</ul>
